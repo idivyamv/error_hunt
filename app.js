@@ -1,7 +1,8 @@
-const express = require('express'); 
+const express = require('express');
+const app = new express; //Part #1 Point 1
 const path = require ('path'); 
 const cors = require('cors');
-
+const bodyParser = require('body-parser');// Part #1 Point 2
 const nav= [
     {
         link:"/books",
@@ -12,29 +13,28 @@ const nav= [
         title:"Authors"
     },
     {
-        link:"/addbook",
+        link:"/books/addbook",//Part #2 Point 6
         title:"Add Book"
     },
     {
-        link:"/addauthor",
+        link:"/authors/addauthor",//Part #2 Point 6
         title:"Add Author"
     }
 ]
 
 const loginRouter = require('./src/routes/loginroute');
 const signupRouter = require('./src/routes/signuproute');
-const homeRouter = require('./src/routes/homerouter'); // Part #1 Point 2 require('./src/routes/homerouter') instead of require('./src/routes/homeroute')
-const booksRouter = require('./src/routes/booksroute');
-const authorsRouter = require('./src/routes/authorsroute');
+const homeRouter = require('./src/routes/homerouter'); // Part #1 Point 3 routing,part #2 point 6 require('./src/routes/homerouter') instead of require('./src/routes/homeroute')
+const booksRouter = require('./src/routes/booksroute');// Part #2 Point 6
+const authorsRouter = require('./src/routes/authorsroute');// Part #2 Point 6
 
-const app = new express; 
-const bodyParser = require('body-parser');// Part #1 Point 3  create bodyparser instance
+
 
 app.set('views','./src/views'); 
 app.set('view engine','ejs'); 
 
 
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({extended:true}));//Part #1 Point 2
 app.use(express.json());
 app.use(express.static(path.join(__dirname , '/public'))); 
 
