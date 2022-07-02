@@ -34,7 +34,7 @@ authorsRouter.post('/add', function (req, res) {
 
     var item={
         title:req.body.title,
-        image:req.body.images,
+        image:req.body.image,//image instead of images
         about:req.body.about
     }
     console.log(item)  ;
