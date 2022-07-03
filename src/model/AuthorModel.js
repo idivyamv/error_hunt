@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/Library');
+mongoose.connect('mongodb+srv://error-hunt:divya12A@cluster0.afrxmm1.mongodb.net/?retryWrites=true&w=majority', { useNewUrlParser: true });
 //mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 
